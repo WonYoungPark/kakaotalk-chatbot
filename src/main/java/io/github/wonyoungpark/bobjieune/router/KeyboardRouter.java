@@ -32,7 +32,7 @@ public class KeyboardRouter {
     public RouterFunction<ServerResponse> keboardRouterFunction() {
         return nest(path(URI_VERSION + URI_PATH),
                     nest(accept(MediaType.APPLICATION_JSON),
-                        route(GET("").and(accept(MediaType.APPLICATION_JSON_UTF8)), (request) -> ServerResponse.ok().syncBody(
+                        route(GET("").and(accept(MediaType.APPLICATION_JSON)), (request) -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON_UTF8).syncBody(
                             new Keyboard("buttons", Arrays.asList("선택 1", "선택 2", "선택 3")))))
         );
     }
