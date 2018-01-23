@@ -1,4 +1,4 @@
-package io.github.wonyoungpark.bobjieune.domain;
+package io.github.wonyoungpark.bobjieune.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
