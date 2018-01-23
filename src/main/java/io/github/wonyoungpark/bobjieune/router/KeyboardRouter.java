@@ -8,6 +8,8 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
@@ -30,10 +32,12 @@ public class KeyboardRouter {
 
     @Bean
     public RouterFunction<ServerResponse> keboardRouterFunction() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("keyboard", new Keyboard("buttons", Arrays.asList("선택 1", "선택 2", "선택 3")));
         return nest(path(URI_VERSION + URI_PATH),
                     nest(accept(MediaType.APPLICATION_JSON),
                         route(GET("").and(accept(MediaType.APPLICATION_JSON)), (request) -> ServerResponse.ok().syncBody(
-                            new Keyboard("buttons", Arrays.asList("선택 1", "선택 2", "선택 3")))))
+                            map)))
         );
     }
 
