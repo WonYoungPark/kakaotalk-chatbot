@@ -33,7 +33,7 @@ public class KeyboardRouter {
         return nest(path(URI_VERSION + URI_PATH),
                     nest(accept(MediaType.APPLICATION_JSON),
                         route(GET("").and(accept(MediaType.APPLICATION_JSON)), (request) -> ServerResponse.ok().syncBody(
-                            new Keyboard("buttons", Arrays.asList("1", "2", "3")))))
+                            new Keyboard("buttons", Arrays.asList("선택 1", "선택 2", "선택 3")))))
         );
     }
 
