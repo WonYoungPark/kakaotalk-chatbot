@@ -31,8 +31,8 @@ public class KeyboardRouter {
     @Bean
     public RouterFunction<ServerResponse> keboardRouterFunction() {
         return nest(path(URI_VERSION + URI_PATH),
-                    nest(accept(MediaType.APPLICATION_JSON_UTF8),
-                        route(GET("").and(accept(MediaType.APPLICATION_JSON_UTF8)), (request) -> ServerResponse.ok().syncBody(
+                    nest(accept(MediaType.APPLICATION_JSON),
+                        route(GET("").and(accept(MediaType.APPLICATION_JSON)), (request) -> ServerResponse.ok().syncBody(
                             new Keyboard("buttons", Arrays.asList("1", "2", "3")))))
         );
     }
